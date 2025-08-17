@@ -3,23 +3,25 @@
     padding: 0;
     box-sizing: border-box;
 }
-:root{
-    --text-color:white;
-    --bg-url:url(./assets/Background.png);
-    --stroke-color:rgba(255, 255, 255, 0.5);
-    --surface-color:rgba(255, 255, 255, 0.1);
-    --surface-color-hover:rgba(0,0,0,0.02);
+
+:root {
+    --text-color: white;
+    --bg-url: url(./assets/Background.png);
+    --stroke-color: rgba(255, 255, 255, 0.5);
+    --surface-color: rgba(255, 255, 255, 0.1);
+    --surface-color-hover: rgba(0, 0, 0, 0.02);
     --highlight-color: rgba(255, 255, 255, 0.2);
-    --switch-bg-url:url(./assets/moon-stars.svg);
+    --switch-bg-url: url(./assets/moon-stars.svg);
 
 }
-.light{
-    --text-color:black;
-    --bg-url:url(./assets/Background-Light.png);
-    --stroke-color:rgba(0,0,0,0.5);
-    --surface-color:rgba(0 , 0 ,0 , 0.05);
+
+.light {
+    --text-color: black;
+    --bg-url: url(./assets/Background-Light.png);
+    --stroke-color: rgba(0, 0, 0, 0.5);
+    --surface-color: rgba(0, 0, 0, 0.05);
     --highlight-color: rgba(0, 0, 0, 0.1);
-    --switch-bg-url:url(./assets/sun.svg);
+    --switch-bg-url: url(./assets/sun.svg);
 }
 
 body {
@@ -62,24 +64,41 @@ body * {
 #profile a {
     text-decoration: none;
 }
-#switch button{
+
+#switch {
+    position: relative;
+    width: 64px;
+    /*border: 1px solid red;    debug*/
+    margin: 4px auto;
+}
+
+#switch button {
     width: 32px;
     height: 32px;
     background: white var(--switch-bg-url) no-repeat center;
     border: 0;
     border-radius: 50%;
-
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
-
-#switch span{
+.light #switch button{
+    right: 0;
+    left: initial;
+}
+#switch span {
     display: block;
     width: 64px;
     height: 24px;
     background: var(--surface-color);
-    border:1px solid var(--stroke-color);
+    border: 1px solid var(--stroke-color);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 9999px;
+
 }
+
 ul {
     list-style: none;
     display: flex;
@@ -125,7 +144,7 @@ ul li a:hover {
 #social-media a {
     display: flex;
     align-items: center;
-    justify-content: center;   
+    justify-content: center;
     padding: 16px;
     transition: background 0.2s;
     border-radius: 50%;
@@ -137,7 +156,7 @@ ul li a:hover {
     background-color: var(--highlight-color);
 }
 
-footer{
+footer {
     padding: 24px 0;
     font-style: none;
     font-size: 14px;
